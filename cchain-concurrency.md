@@ -13,7 +13,7 @@
 | **Pillar** | Architecture & Performance |
 | **Related Work** | [Preliminary implementation](https://github.com/alexanderwiederin/bitcoin/tree/chain-base-tail) |
 | **Date Created** | 2024-12-16 |
-| **Last Updated** | 2024-12-18 |
+| **Last Updated** | 2024-12-23 |
 
 </td>
 <td width="40%" style="vertical-align: top; border: none;">
@@ -371,8 +371,8 @@ held for the entire duration of chain access.
 
 1. What is the ideal `MAX_TAIL_SIZE`? Shorter chain favors shorter tail,
        longer chain favors longer tail.
-2. Could the tail also be a different data structure to optimize write
-       speed? Current benchmarking results suggest this will be required
+2. **Could the tail also be a different data structure to optimize write
+       speed?** Current benchmarking results suggest this will be required
 3. **How many locks can safely be removed?** [Bitcoin Core Locking/mutex usage notes](https://github.com/bitcoin/bitcoin/blob/master/doc/developer-notes.md#lockingmutex-usage-notes)
 4. **Could we use a read-write lock (shared_mutex) instead?** This would
        allow truly concurrent reads during `GetSnapshot()` while still
